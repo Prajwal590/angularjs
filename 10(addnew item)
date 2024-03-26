@@ -7,14 +7,12 @@
 .controller('ItemController', function() {
     this.items = ['Item 1', 'Item 2', 'Item 3'];
     this.newItem = '';
-
     this.addItem = function() {
         if (this.newItem !== '') {
             this.items.push(this.newItem);
             this.newItem = '';
         }
     };
-
     this.removeItem = function(index) {
         this.items.splice(index, 1);
     };
@@ -22,18 +20,15 @@
 </script>
 </head>
 <body ng-app="itemApp">
-
     <div ng-controller="ItemController as ctrl">
         <input type="text" ng-model="ctrl.newItem" placeholder="Enter new item" />
         <button ng-click="ctrl.addItem()">Add Item</button>
-
         <table>
             <tr ng-repeat="item in ctrl.items">
                <td> {{ item }} </td>
               <td><button ng-click="ctrl.removeItem($index)">Remove</button></td>
             </tr>
         </table>
-
         <p>Total Items: {{ ctrl.items.length }}</p>
     </div>
 
