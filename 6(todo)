@@ -5,11 +5,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 <body ng-app="todoApp">
-
     <div ng-controller="TodoController as todoCtrl">
         <input type="text" ng-model="todoCtrl.newTask" placeholder="Enter new task" />
         <button ng-click="todoCtrl.addTask()">Add Task</button>
-
         <ul>
             <li ng-repeat="task in todoCtrl.tasks">
                 <input type="text" ng-model="task.text" ng-disabled="!task.editing" />
@@ -19,21 +17,19 @@
             </li>
         </ul>
     </div>
-
 </body>
 </html>
-<script >angular.module('todoApp', [])
-.controller('TodoController', function() {
+<script >
+var app=angular.module('todoApp', [])
+app.controller('TodoController', function() {
     this.tasks = [{text: 'Task 1', editing: false}, {text: 'Task 2', editing: false}]; 
     this.newTask = '';
-
     this.addTask = function() {
         if (this.newTask !== '') {
             this.tasks.push({text: this.newTask, editing: false});
             this.newTask = '';
         }
     };
-
     this.deleteTask = function(index) {
         this.tasks.splice(index, 1);
     };
