@@ -5,15 +5,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 <body ng-app="employeeApp" ng-controller="employeeController">
-
     <h2>Employee List</h2>
-
     <label>Search by Name:</label>
     <input type="text" ng-model="searchName">
-    
     <label>Search by Salary:</label>
     <input type="number" ng-model="searchSalary">
-
     <table border="1">
         <tr>
             <th>Name</th>
@@ -24,18 +20,15 @@
             <td>{{ employee.salary }}</td>
         </tr>
     </table>
-
 </body>
 </html>
   <script >var app = angular.module('employeeApp', []);
-
 app.controller('employeeController', function($scope) {
     $scope.employees = [
         { name: 'John Doe', salary: 50000 },
         { name: 'Jane Smith', salary: 60000 },
         { name: 'Emily Johnson', salary: 70000 }
     ];
-
     $scope.customSalaryFilter = function(employee) {
         if (!$scope.searchSalary || employee.salary >= $scope.searchSalary) {
             return true;
