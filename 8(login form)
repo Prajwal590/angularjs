@@ -35,7 +35,6 @@
             <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
         </div>
     </form>
-    <!-- Display welcome message -->
     <p>{{ welcomeMessage }}</p>
 </body>
 </html>
